@@ -9,6 +9,10 @@ const BookDetails = () => {
 
   const book = books.find((book) => book.bookId === id);
 
+  if(!book){
+    return <><h1>Page Not found hello</h1></>
+  }
+
   const {
     bookId: bId,
     bookName,

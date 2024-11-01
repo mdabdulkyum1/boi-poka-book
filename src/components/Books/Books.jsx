@@ -15,7 +15,7 @@ function Books() {
         <h1 className="text-4xl text-center">Books: {books.length} </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 lg:px-0 my-10">
             {
-                books.map((book, idx) => <Book key={book.idx} book={book}></Book>)
+                books.map((book, idx) => <Book key={idx} book={book}></Book>)
             }
         </div>
     </div>

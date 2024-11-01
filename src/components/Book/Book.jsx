@@ -6,13 +6,9 @@ function Book({ book }) {
     bookName,
     author,
     image,
-    review,
-    totalPages,
     rating,
     category,
     tags,
-    publisher,
-    yearOfPublishing,
   } = book;
   return (
         <Link to="/listed-books">

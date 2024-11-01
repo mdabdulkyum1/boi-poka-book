@@ -7,6 +7,7 @@ import Root from './components/Root/Root.jsx';
 import Home from './components/Home/Home.jsx';
 import ListedBooks from './components/ListedBooks/ListedBooks';
 import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
+import BookDetails from './components/BookDetails/BookDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,11 @@ const router = createBrowserRouter([
       {
         path: "listed-books",
         element:<ListedBooks></ListedBooks> ,
-      }
+      },
+      {
+        path:"/book-details",
+        element: <BookDetails></BookDetails> ,
+      },
     ],
   },
 ]);

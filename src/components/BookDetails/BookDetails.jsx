@@ -1,5 +1,7 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import { setIds } from "../../utility/setDb";
+
 
 const BookDetails = () => {
   const books = useLoaderData();
@@ -22,6 +24,11 @@ const BookDetails = () => {
     publisher,
     yearOfPublishing
   } = book;
+
+  const markAsRead = (id) => {
+ 
+    setIds(id)
+  }
 
   return (
     <div className="flex flex-col md:flex-row p-8 bg-gray-100 rounded-lg shadow-md">
@@ -99,7 +106,7 @@ const BookDetails = () => {
         </div>
 
         <div className="mt-4 flex flex-col md:flex-row">
-          <button className="bg-black text-white px-4 py-2 rounded mr-2 mb-2 md:mb-0">
+          <button onClick={()=> markAsRead(id)}  className="bg-black text-white px-4 py-2 rounded mr-2 mb-2 md:mb-0">
             Read
           </button>
           <button className="bg-teal-500 text-white px-4 py-2 rounded">

@@ -9,10 +9,6 @@ const BookDetails = () => {
 
   const book = books.find((book) => book.bookId === id);
 
-  if(!book){
-    return <><h1>Page Not found hello</h1></>
-  }
-
   const {
     bookId: bId,
     bookName,
@@ -39,6 +35,7 @@ const BookDetails = () => {
       <div className="md:w-2/3 md:pl-8">
         <h1 className="text-3xl font-bold">{bookName}</h1>
         <p className="text-lg mt-2">By: {author}</p>
+        <p>{id}</p>
         <p className="text-lg mt-2 border-t border-b border-gray-400 py-2">
           {category}:
         </p>

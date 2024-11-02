@@ -25,9 +25,8 @@ const BookDetails = () => {
     yearOfPublishing
   } = book;
 
-  const markAsRead = (id) => {
- 
-    setIds(id)
+  const markAsRead = (id, bookName) => {
+    setIds(id,bookName)
   }
 
   return (
@@ -106,10 +105,10 @@ const BookDetails = () => {
         </div>
 
         <div className="mt-4 flex flex-col md:flex-row">
-          <button onClick={()=> markAsRead(id)}  className="bg-black text-white px-4 py-2 rounded mr-2 mb-2 md:mb-0">
+          <button onClick={()=> markAsRead(id,bookName)}  className="btn btn-success text-white px-4 py-2 rounded mr-2 mb-2 md:mb-0">
             Read
           </button>
-          <button className="bg-teal-500 text-white px-4 py-2 rounded">
+          <button className="btn bg-teal-500 text-white px-4 py-2 rounded">
             Wishlist
           </button>
         </div>

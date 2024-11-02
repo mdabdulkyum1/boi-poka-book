@@ -23,4 +23,4 @@ const setIds = id => {
     }
 }
 
-export { setIds }
+export { setIds, getBookIdLists }

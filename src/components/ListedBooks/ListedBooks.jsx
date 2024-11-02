@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import { getBookIdLists } from "../../utility/setDb";
+import { useLoaderData } from "react-router-dom";
+import Book from './../Book/Book';
 
 
 
 function ListedBooks() {
+
+  const [readBooks, setReadBook] = useState([])
+   const allBooks = useLoaderData()
+
+  useEffect(()=> {
+    const existId = getBookIdLists();
+    
+    const getCurrentBooks = allBooks.filter(book => existId.includes(book.bookId))
+    console.log(getCurrentBooks)
+      setReadBook(getCurrentBooks)
+  } ,[])
+
+
   return (
     <div>
       <div className="py-3 bg-base-300 rounded-xl ">
@@ -33,14 +49,10 @@ function ListedBooks() {
         </div>
       </div>
     {/* React Tabs here */}
-    
-    
-    
-    
     <div className="">
     <Tabs>
     <TabList>
-      <Tab>Read Books</Tab>
+      <Tab>Read Books: {readBooks.length}</Tab>
       <Tab>Wishlist Books</Tab>
     </TabList>
 
@@ -77,10 +89,18 @@ function ListedBooks() {
                     </div>
                 </div>
             </div>
-        </div>
+    </div>
+
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {
+            readBooks.map(book=> <Book key={book.bookId} book={book} basePath="/books"></Book>)
+          }
+    </div>
+
     </TabPanel>
     <TabPanel>
-      <h2>Any content 2</h2>
+      <h2>Any content </h2>
     </TabPanel>
   </Tabs>
     </div>

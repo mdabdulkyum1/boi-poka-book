@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function Book({ book }) {
+function Book({ book , basePath = "/books"}) {
   const {
     bookId,
     bookName,
@@ -13,7 +13,7 @@ function Book({ book }) {
   } = book;
 
   return (
-    <Link to={`books/${bookId}`}>
+    <Link to={`${basePath}/${bookId}`} >
       <div className="card bg-base-100 w-full sm:w-80 md:w-96 mx-auto shadow-xl border p-6">
         <figure className="px-10 py-9 bg-base-300 rounded-lg">
           <img src={image} alt={bookName} className="rounded-xl h-40 w-auto" />
